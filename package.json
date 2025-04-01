@@ -1,5 +1,5 @@
 {
-  "name": "pancake-v3",
+  "name": "hashcubs-nft-markets",
   "private": true,
   "workspaces": [
     "projects/*",
