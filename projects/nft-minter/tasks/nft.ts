@@ -29,6 +29,20 @@ task("transfer-nft", "Transfer NFT")
     });
   });
 
+task("transfer-nft-by-name", "Transfer NFT by name")
+  .addParam("name", "Contract name", undefined, types.string)
+  .addParam("tokenid", "Token ID", undefined, types.int)
+  .addParam("to", "To address", undefined, types.string)
+  .setAction(async ({ name, tokenid, to }, hre) => {
+    return getContract(name, hre).then((contract: Contract) => {
+      console.log("contract.address", contract.address);
+      console.log("tokenid", tokenid);
+      console.log("to", to);
+      // 0x26AC28D33EcBf947951d6B7d8a1e6569eE73d076
+      return contract.transferFrom(env("DEPLOYER_ADDRESS"), to, tokenid);
+    });
+  });
+
 task("deploy-contract", "Deploy NFT contract").setAction(async (_, hre) => {
   return hre.ethers
     .getContractFactory("HarryNFT", getWallet())
@@ -44,6 +58,24 @@ task("deploy-contract", "Deploy NFT contract").setAction(async (_, hre) => {
       console.error(error);
     });
 });
+
+task("deploy-contract-by-name", "Deploy NFT contract by name")
+  .addParam("name", "Contract name", undefined, types.string)
+  .setAction(async ({ name }, hre) => {
+    return hre.ethers
+      .getContractFactory(name, getWallet())
+      .then((contractFactory) => contractFactory.deploy())
+      .then(async (result) => {
+        // console deployer
+        console.log("deployer", getWallet());
+        // console balance
+        console.log("balance", await getWallet().getBalance());
+        process.stdout.write(`Contract address: ${result.address}`);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  });
 
 task("set-base-uri", "Set base URI")
   .addParam("newbaseuri", "New base URI", undefined, types.string)
@@ -74,6 +106,25 @@ task("mint-nft", "Mint an NFT")
         console.log("tokenUri", tokenUri);
         console.log("Minter Address", env("DEPLOYER_ADDRESS"));
         return contract.mintNFT(env("DEPLOYER_ADDRESS"), tokenUri, {
+          gasLimit: 500_000,
+          value: hre.ethers.utils.parseEther("0.001"),
+        });
+      })
+      .then((tr: TransactionResponse) => {
+        process.stdout.write(`TX hash: ${tr.hash}`);
+      });
+  });
+
+task("mint-nft-by-name", "Mint an NFT by name")
+  .addParam("name", "Contract name", undefined, types.string)
+  .addParam("tokenuri", "Your ERC721 Token URI", undefined, types.string)
+  .setAction(async ({ name, tokenuri }, hre) => {
+    return getContract(name, hre)
+      .then((contract: Contract) => {
+        console.log("contract.address", contract.address);
+        console.log("tokenUri", tokenuri);
+        console.log("Minter Address", env("DEPLOYER_ADDRESS"));
+        return contract.mintNFT(env("DEPLOYER_ADDRESS"), tokenuri, {
           gasLimit: 500_000,
           value: hre.ethers.utils.parseEther("0.001"),
         });
