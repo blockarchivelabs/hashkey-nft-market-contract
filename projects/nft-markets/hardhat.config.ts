@@ -103,6 +103,9 @@ const config: HardhatUserConfig = {
   docgen: {
     pages: "files",
   },
+  sourcify: {
+    enabled: true,
+  },
 };
 
 export default config;

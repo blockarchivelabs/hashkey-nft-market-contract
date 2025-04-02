@@ -9,7 +9,7 @@ export default {
     hashkey_mainnet: "0x708D369b91948E9812821c9BD4664ce0CcDFAB07",
     hashkey_testnet: "0x2a6798EE6Df87C66f35b4ef54A4ec66912Bd51cb",
   },
-  WBNB: {
+  WHSK: {
     hashkey_mainnet: "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
     hashkey_testnet: "0xA0F15E49C19648D49769920cFD58d47b18F52be8",
   },

@@ -20,7 +20,7 @@ const main = async () => {
   console.log("========================================");
   console.log(config.Admin[networkName]);
   console.log(config.Treasury[networkName]);
-  console.log(config.WBNB[networkName]);
+  console.log(config.WHSK[networkName]);
   console.log(config.MinimumAskPrice[networkName]);
   console.log(config.MaximumAskPrice[networkName]);
   console.log("========================================");
@@ -28,7 +28,7 @@ const main = async () => {
   const contract = await ERC721NFTMarketV1.deploy(
     config.Admin[networkName],
     config.Treasury[networkName],
-    config.WBNB[networkName],
+    config.WHSK[networkName],
     config.MinimumAskPrice[networkName],
     config.MaximumAskPrice[networkName]
   );
