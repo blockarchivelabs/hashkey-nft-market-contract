@@ -1,9 +1,10 @@
 /* eslint-disable global-require */
 /* eslint-disable @typescript-eslint/no-var-requires */
 import type { HardhatUserConfig, NetworkUserConfig } from "hardhat/types";
-import "@nomiclabs/hardhat-ethers";
-import "@nomiclabs/hardhat-etherscan";
-import "@nomiclabs/hardhat-waffle";
+import "@nomicfoundation/hardhat-ethers";
+// import "@nomiclabs/hardhat-etherscan";
+import "@nomicfoundation/hardhat-verify";
+import "@nomicfoundation/hardhat-chai-matchers";
 import "@openzeppelin/hardhat-upgrades";
 import "@typechain/hardhat";
 import "hardhat-abi-exporter";
@@ -13,16 +14,13 @@ import "solidity-docgen";
 import "dotenv/config";
 
 require("dotenv").config({ path: require("find-config")(".env") });
-require("./tasks/nftMarket");
+require("./tasks/nftMarketV1");
+// require("./tasks/nftMarketV2");
 
 const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
   networks: {
     hardhat: {},
-    ...(process.env.KEY_TESTNET && { bscTestnet }),
-    ...(process.env.KEY_MAINNET && { bscMainnet }),
-    ...(process.env.KEY_GOERLI && { goerli }),
-    ...(process.env.KEY_ETH && { eth }),
     hashkey_mainnet: {
       url: "https://mainnet.hsk.xyz",
       chainId: 177,
@@ -57,6 +55,15 @@ const config: HardhatUserConfig = {
   },
   solidity: {
     compilers: [
+      {
+        version: "0.8.20",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 999,
+          },
+        },
+      },
       {
         version: "0.8.10",
         settings: {

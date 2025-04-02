@@ -3,7 +3,6 @@
   "private": true,
   "workspaces": [
     "projects/*",
-    "deployer/*",
     "common"
   ],
   "scripts": {
@@ -12,6 +11,7 @@
   },
   "devDependencies": {
     "@typechain/hardhat": "^6.1.5",
+    "ethers": "^5.7.2",
     "find-config": "^1.0.0",
     "solidity-docgen": "^0.6.0-beta.35",
     "zx": "^7.2.0"

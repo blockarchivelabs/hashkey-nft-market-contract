@@ -1,5 +1,5 @@
-# NFT Markets
+# Hashkey Chain
 
 ## Description
 
-A collectible marketplace for exchanging ERC721 tokens using BNB and wrapped BNB.
+A collectible marketplace for exchanging ERC721 tokens using HSK and wrapped HSK.
