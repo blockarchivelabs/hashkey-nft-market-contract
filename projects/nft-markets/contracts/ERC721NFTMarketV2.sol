@@ -144,9 +144,9 @@ contract ERC721NFTMarketV2 is Initializable, ERC721HolderUpgradeable, OwnableUpg
         require(_minimumAskPrice > 0, "Operations: _minimumAskPrice must be > 0");
         require(_minimumAskPrice < _maximumAskPrice, "Operations: _minimumAskPrice < _maximumAskPrice");
 
-        __ERC721Holder_init();
-        __Ownable_init();
-        __ReentrancyGuard_init();
+        // __ERC721Holder_init();
+        // __Ownable_init(_adminAddress);
+        // __ReentrancyGuard_init();
 
         adminAddress = _adminAddress;
         treasuryAddress = _treasuryAddress;

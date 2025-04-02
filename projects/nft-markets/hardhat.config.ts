@@ -2,8 +2,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import type { HardhatUserConfig, NetworkUserConfig } from "hardhat/types";
 import "@nomicfoundation/hardhat-ethers";
-// import "@nomiclabs/hardhat-etherscan";
-import "@nomicfoundation/hardhat-verify";
+import "@nomiclabs/hardhat-etherscan";
+// import "@nomicfoundation/hardhat-verify";
 import "@nomicfoundation/hardhat-chai-matchers";
 import "@openzeppelin/hardhat-upgrades";
 import "@typechain/hardhat";
@@ -104,7 +104,7 @@ const config: HardhatUserConfig = {
     pages: "files",
   },
   sourcify: {
-    enabled: true,
+    enabled: false,
   },
 };
 
