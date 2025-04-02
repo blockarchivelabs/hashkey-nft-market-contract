@@ -1399,6 +1399,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nomiclabs/hardhat-waffle@npm:^2.0.6":
+  version: 2.0.6
+  resolution: "@nomiclabs/hardhat-waffle@npm:2.0.6"
+  peerDependencies:
+    "@nomiclabs/hardhat-ethers": ^2.0.0
+    "@types/sinon-chai": ^3.2.3
+    ethereum-waffle: "*"
+    ethers: ^5.0.0
+    hardhat: ^2.0.0
+  checksum: 10c0/9614ab1e76959cfccc586842d990de4c2aa74cea8e82a838d017d91d4c696df931af4a77af9c16325e037ec8438a8c98c9bae5d9e4d0d0fcdaa147c86bce01b5
+  languageName: node
+  linkType: hard
+
 "@npmcli/agent@npm:^3.0.0":
   version: 3.0.0
   resolution: "@npmcli/agent@npm:3.0.0"
@@ -1534,6 +1547,12 @@ __metadata:
   checksum: 10c0/e4586ff5edeaf7436ec0c0a58def5b69576753d3dbc345f227f5d44e0a737d2bf46de679ef3369b7bc377006decdf46e9645274e2fe5de4aa1c0cefc07abc841
   languageName: node
   linkType: hard
+
+"@pancakeswap/common@workspace:common":
+  version: 0.0.0-use.local
+  resolution: "@pancakeswap/common@workspace:common"
+  languageName: unknown
+  linkType: soft
 
 "@pkgjs/parseargs@npm:^0.11.0":
   version: 0.11.0
@@ -5791,6 +5810,7 @@ __metadata:
   resolution: "huskey-nft-minter@workspace:projects/nft-minter"
   dependencies:
     "@nomicfoundation/hardhat-toolbox": "npm:^2.0.2"
+    "@nomiclabs/hardhat-waffle": "npm:^2.0.6"
     "@openzeppelin/contracts": "npm:^4.8.1"
     "@openzeppelin/hardhat-upgrades": "npm:^1.22.1"
     "@openzeppelin/test-helpers": "npm:^0.5.11"
