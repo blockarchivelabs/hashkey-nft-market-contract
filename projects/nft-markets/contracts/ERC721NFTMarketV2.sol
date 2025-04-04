@@ -76,6 +76,20 @@ contract ERC721NFTMarketV2 is Initializable, ERC721HolderUpgradeable, OwnableUpg
         uint256 tradingFee,
         uint256 creatorFee
     );
+    event CollectionNew2(
+        address indexed collection,
+        address indexed creator,
+        address indexed whitelistChecker,
+        uint256 tradingFee,
+        uint256 creatorFee
+    );
+    event CollectionNew3(
+        address indexed collection,
+        address indexed creator,
+        address indexed whitelistChecker,
+        uint256 tradingFee,
+        uint256 creatorFee
+    );
 
     // Existing collection is updated
     event CollectionUpdate(
@@ -144,9 +158,9 @@ contract ERC721NFTMarketV2 is Initializable, ERC721HolderUpgradeable, OwnableUpg
         require(_minimumAskPrice > 0, "Operations: _minimumAskPrice must be > 0");
         require(_minimumAskPrice < _maximumAskPrice, "Operations: _minimumAskPrice < _maximumAskPrice");
 
-        // __ERC721Holder_init();
-        // __Ownable_init(_adminAddress);
-        // __ReentrancyGuard_init();
+        __ERC721Holder_init();
+        __Ownable_init(_adminAddress);
+        __ReentrancyGuard_init();
 
         adminAddress = _adminAddress;
         treasuryAddress = _treasuryAddress;
@@ -303,6 +317,8 @@ contract ERC721NFTMarketV2 is Initializable, ERC721HolderUpgradeable, OwnableUpg
         });
 
         emit CollectionNew(_collection, _creator, _whitelistChecker, _tradingFee, _creatorFee);
+        emit CollectionNew2(_collection, _creator, _whitelistChecker, _tradingFee, _creatorFee);
+        emit CollectionNew3(_collection, _creator, _whitelistChecker, _tradingFee, _creatorFee);
     }
 
     /**

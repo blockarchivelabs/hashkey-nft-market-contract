@@ -6,25 +6,6 @@ import { getContract } from "../lib/contract";
 import { env } from "../lib/env";
 import { getWallet } from "../lib/wallet";
 
-task("initialize", "Initialize the ERC721NFTMarketV2 contract")
-  .addParam("admin", "Admin address", undefined, types.string)
-  .addParam("treasury", "Treasury address", undefined, types.string)
-  .addParam("whsk", "WHSK address", undefined, types.string)
-  .addParam("minimumaskprice", "Minimum ask price in wei", undefined, types.string)
-  .addParam("maximumaskprice", "Maximum ask price in wei", undefined, types.string)
-  .setAction(async ({ admin, treasury, whsk, minimumaskprice, maximumaskprice }, hre) => {
-    return getContract("ERC721NFTMarketV2", hre).then(async (contract: Contract) => {
-      console.log("contract.address", await contract.address);
-      const tx = await contract.initialize(admin, treasury, whsk, minimumaskprice, maximumaskprice, {
-        gasLimit: 10_000_000,
-      });
-      console.log("Transaction:", tx.hash);
-      const receipt = await tx.wait();
-      console.log("Transaction was mined in block", receipt.blockNumber);
-      return receipt;
-    });
-  });
-
 task("get-whsk-address", "Get base URI").setAction(async (_, hre) => {
   return getContract("ERC721NFTMarketV2", hre).then(async (contract: Contract) => {
     console.log("contract.address", await contract.whsk());

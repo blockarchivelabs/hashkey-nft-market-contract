@@ -14,8 +14,8 @@ import "solidity-docgen";
 import "dotenv/config";
 
 require("dotenv").config({ path: require("find-config")(".env") });
-require("./tasks/nftMarketV1");
-// require("./tasks/nftMarketV2");
+// require("./tasks/nftMarketV1");
+require("./tasks/nftMarketV2");
 
 const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
@@ -104,7 +104,9 @@ const config: HardhatUserConfig = {
     pages: "files",
   },
   sourcify: {
-    enabled: false,
+    enabled: true,
+    apiUrl: "https://hashkeychain-testnet-explorer.alt.technology:443/api",
+    browserUrl: "https://hashkeychain-testnet-explorer.alt.technology:443",
   },
 };
 

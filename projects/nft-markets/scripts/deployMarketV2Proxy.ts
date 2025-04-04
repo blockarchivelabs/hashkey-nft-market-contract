@@ -38,6 +38,7 @@ const main = async () => {
     config.MaximumAskPrice[networkName],
   ]);
   console.log("Initialization data prepared.");
+  console.log("initData", initData);
 
   // 4. Deploy the proxy contract
   console.log("4. Deploying proxy contract...");
