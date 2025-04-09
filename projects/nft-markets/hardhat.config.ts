@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 /* eslint-disable @typescript-eslint/no-var-requires */
-import type { HardhatUserConfig, NetworkUserConfig } from "hardhat/types";
+import type { HardhatUserConfig } from "hardhat/types";
 import "@nomicfoundation/hardhat-ethers";
 import "@nomiclabs/hardhat-etherscan";
 // import "@nomicfoundation/hardhat-verify";
@@ -14,7 +14,6 @@ import "solidity-docgen";
 import "dotenv/config";
 
 require("dotenv").config({ path: require("find-config")(".env") });
-// require("./tasks/nftMarketV1");
 require("./tasks/nftMarketV2");
 
 const config: HardhatUserConfig = {

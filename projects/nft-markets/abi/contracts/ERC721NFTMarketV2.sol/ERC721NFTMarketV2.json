@@ -132,19 +132,6 @@
     "anonymous": false,
     "inputs": [
       {
-        "indexed": false,
-        "internalType": "uint64",
-        "name": "version",
-        "type": "uint64"
-      }
-    ],
-    "name": "BeforeInitialized",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
         "indexed": true,
         "internalType": "address",
         "name": "collection",
@@ -319,19 +306,6 @@
     "anonymous": false,
     "inputs": [
       {
-        "indexed": false,
-        "internalType": "bool",
-        "name": "isTopLevelCall",
-        "type": "bool"
-      }
-    ],
-    "name": "IsTopLevelCall",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
         "indexed": true,
         "internalType": "address",
         "name": "admin",
@@ -421,19 +395,6 @@
       }
     ],
     "name": "RevenueClaim",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "thisAddress",
-        "type": "address"
-      }
-    ],
-    "name": "ThisAddress",
     "type": "event"
   },
   {

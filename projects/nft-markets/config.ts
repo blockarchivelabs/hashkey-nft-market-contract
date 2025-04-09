@@ -1,44 +1,42 @@
+import "dotenv/config";
+
 export default {
   Admin: {
-    // TODO: needs to be updated before deployment
-    hashkey_mainnet: "0x708D369b91948E9812821c9BD4664ce0CcDFAB07",
-    hashkey_testnet: "0x2a6798EE6Df87C66f35b4ef54A4ec66912Bd51cb",
+    hashkey_mainnet: process.env.ADMIN_MAINNET,
+    hashkey_testnet: process.env.ADMIN_TESTNET,
   },
   Treasury: {
-    // TODO: needs to be updated before deployment
-    hashkey_mainnet: "0x708D369b91948E9812821c9BD4664ce0CcDFAB07",
-    hashkey_testnet: "0x2a6798EE6Df87C66f35b4ef54A4ec66912Bd51cb",
+    hashkey_mainnet: process.env.TREASURY_MAINNET,
+    hashkey_testnet: process.env.TREASURY_TESTNET,
   },
   WHSK: {
-    hashkey_mainnet: "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
-    hashkey_testnet: "0xA0F15E49C19648D49769920cFD58d47b18F52be8",
+    hashkey_mainnet: process.env.WHSK_MAINNET,
+    hashkey_testnet: process.env.WHSK_TESTNET,
   },
   MinimumAskPrice: {
-    // in wei
-    hashkey_mainnet: "10000000000000000", // 0.01 BNB
-    hashkey_testnet: "10000000000000000", // 0.01 BNB
+    hashkey_mainnet: process.env.MINIMUM_ASK_PRICE,
+    hashkey_testnet: process.env.MINIMUM_ASK_PRICE,
   },
   MaximumAskPrice: {
-    // in wei
-    hashkey_mainnet: "100000000000000000000000000", // 100,000,000 BNB
-    hashkey_testnet: "100000000000000000000000000", // 100,000,000 BNB
+    hashkey_mainnet: process.env.MAXIMUM_ASK_PRICE,
+    hashkey_testnet: process.env.MAXIMUM_ASK_PRICE,
   },
   hashkey_mainnet: {
-    Admin: "0x708D369b91948E9812821c9BD4664ce0CcDFAB07",
-    Treasury: "0x708D369b91948E9812821c9BD4664ce0CcDFAB07",
-    WHSK: "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
-    MinimumAskPrice: "10000000000000000",
-    MaximumAskPrice: "100000000000000000000000000",
-    proxy: "YOUR_PROXY_ADDRESS_HERE",
-    proxyAdmin: "YOUR_PROXY_ADMIN_ADDRESS_HERE",
+    Admin: process.env.ADMIN_MAINNET,
+    Treasury: process.env.TREASURY_MAINNET,
+    WHSK: process.env.WHSK_MAINNET,
+    MinimumAskPrice: process.env.MINIMUM_ASK_PRICE,
+    MaximumAskPrice: process.env.MAXIMUM_ASK_PRICE,
+    proxy: process.env.PROXY_MAINNET,
+    proxyAdmin: process.env.PROXY_ADMIN_MAINNET,
   },
   hashkey_testnet: {
-    Admin: "0x2a6798EE6Df87C66f35b4ef54A4ec66912Bd51cb",
-    Treasury: "0x2a6798EE6Df87C66f35b4ef54A4ec66912Bd51cb",
-    WHSK: "0xA0F15E49C19648D49769920cFD58d47b18F52be8",
-    MinimumAskPrice: "10000000000000000",
-    MaximumAskPrice: "100000000000000000000000000",
-    proxy: "0x75f4Bd4077439424E11771C07dc4C2597A214Cc1",
-    proxyAdmin: "0x4455A01d4E17399CDfB6F91E8b9cE389774f916e",
+    Admin: process.env.ADMIN_TESTNET,
+    Treasury: process.env.TREASURY_TESTNET,
+    WHSK: process.env.WHSK_TESTNET,
+    MinimumAskPrice: process.env.MINIMUM_ASK_PRICE,
+    MaximumAskPrice: process.env.MAXIMUM_ASK_PRICE,
+    proxy: process.env.PROXY_TESTNET,
+    proxyAdmin: process.env.PROXY_ADMIN_TESTNET,
   },
 };

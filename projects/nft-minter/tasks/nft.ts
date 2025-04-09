@@ -45,7 +45,7 @@ task("transfer-nft-by-name", "Transfer NFT by name")
 
 task("deploy-contract", "Deploy NFT contract").setAction(async (_, hre) => {
   return hre.ethers
-    .getContractFactory("HarryNFT", getWallet())
+    .getContractFactory("NyangNFT", getWallet())
     .then((contractFactory) => contractFactory.deploy())
     .then(async (result) => {
       // console deployer
@@ -64,7 +64,7 @@ task("deploy-contract-by-name", "Deploy NFT contract by name")
   .setAction(async ({ name }, hre) => {
     return hre.ethers
       .getContractFactory(name, getWallet())
-      .then((contractFactory) => contractFactory.deploy())
+      .then((contractFactory: any) => contractFactory.deploy())
       .then(async (result) => {
         // console deployer
         console.log("deployer", getWallet());
@@ -80,7 +80,7 @@ task("deploy-contract-by-name", "Deploy NFT contract by name")
 task("set-base-uri", "Set base URI")
   .addParam("newbaseuri", "New base URI", undefined, types.string)
   .setAction(async ({ newbaseuri }, hre) => {
-    return getContract("HarryNFT", hre).then((contract: Contract) => {
+    return getContract("NyangNFT", hre).then((contract: Contract) => {
       console.log("contract.address", contract.address);
       console.log("newbaseuri", newbaseuri);
       return contract.setBaseURI(newbaseuri, {
@@ -90,7 +90,7 @@ task("set-base-uri", "Set base URI")
   });
 
 task("get-base-uri", "Get base URI").setAction(async (_, hre) => {
-  return getContract("HarryNFT", hre).then(async (contract: Contract) => {
+  return getContract("NyangNFT", hre).then(async (contract: Contract) => {
     const baseURI = await contract.baseURI();
     console.log("baseURI", baseURI);
     return baseURI;
@@ -100,7 +100,7 @@ task("get-base-uri", "Get base URI").setAction(async (_, hre) => {
 task("mint-nft", "Mint an NFT")
   .addParam("tokenuri", "Your ERC721 Token URI", undefined, types.string)
   .setAction(async (tokenUri, hre) => {
-    return getContract("HarryNFT", hre)
+    return getContract("NyangNFT", hre)
       .then((contract: Contract) => {
         console.log("contract.address", contract.address);
         console.log("tokenUri", tokenUri);

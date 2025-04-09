@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 /* eslint-disable @typescript-eslint/no-var-requires */
-import type { HardhatUserConfig, NetworkUserConfig } from "hardhat/types";
+import type { HardhatUserConfig } from "hardhat/types";
 import "@nomiclabs/hardhat-ethers";
 import "@nomiclabs/hardhat-etherscan";
 import "@nomiclabs/hardhat-waffle";
@@ -27,12 +27,6 @@ const config: HardhatUserConfig = {
     hashkey_testnet: {
       url: "https://hashkeychain-testnet.alt.technology",
       chainId: 133,
-      accounts: [process.env.DEPLOYER_PRIVATE_KEY!],
-    },
-    kairos: {
-      chainId: 1001,
-      url: "https://public-en-kairos.node.kaia.io",
-      gasPrice: 25000000000,
       accounts: [process.env.DEPLOYER_PRIVATE_KEY!],
     },
   },

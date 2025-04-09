@@ -1,9 +1,12 @@
 import { ethers, network, run } from "hardhat";
 import config from "../config";
 
+// Define a type for the network names
+type NetworkName = "hashkey_mainnet" | "hashkey_testnet";
+
 const main = async () => {
   // Get network name: hardhat, testnet or mainnet.
-  const networkName = network.name;
+  const networkName = network.name as NetworkName;
   console.log(`Deploying to ${networkName} network...`);
 
   // Get deployer address

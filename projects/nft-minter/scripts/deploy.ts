@@ -6,11 +6,11 @@ async function main() {
   console.log("Compiled contracts.");
 
   // Deploy HarryNFT contract
-  const HarryNFT = await ethers.getContractFactory("HarryNFT");
-  const harryNFT = await HarryNFT.deploy();
-  await harryNFT.deployed();
+  const NyangNFT = await ethers.getContractFactory("NyangNFT");
+  const nyangNFT = await NyangNFT.deploy();
+  await nyangNFT.deployed();
 
-  console.log(`HarryNFT deployed to ${harryNFT.address}`);
+  console.log(`NyangNFT deployed to ${nyangNFT.address}`);
 
   // Deploy Lock contract
   // const currentTimestampInSeconds = Math.round(Date.now() / 1000);
