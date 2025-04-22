@@ -33,6 +33,13 @@ const main = async () => {
 
   // 3. Prepare the encoded data for the initialize function
   console.log("3. Preparing initialization data...");
+  console.log("config infos");
+  console.log(config.Admin[networkName]);
+  console.log(config.Treasury[networkName]);
+  console.log(config.WHSK[networkName]);
+  console.log(config.MinimumAskPrice[networkName]);
+  console.log(config.MaximumAskPrice[networkName]);
+
   const initData = implementation.interface.encodeFunctionData("initialize", [
     config.Admin[networkName],
     config.Treasury[networkName],
